@@ -420,7 +420,7 @@ let api = function Bitvavo () {
           updateRateLimit(err)
           return callback ? callback(err) : reject(err)
         }
-        if (typeof data.body.error !== 'undefined') {
+        if (data.body && typeof data.body.error !== 'undefined') {
           updateRateLimit(data.headers)
           return callback ? callback(data.body, null) : reject(data.body)
         }
@@ -456,7 +456,7 @@ let api = function Bitvavo () {
           updateRateLimit(err)
           return callback ? callback(err) : reject(err)
         }
-        if (typeof data.body.error !== 'undefined') {
+        if (data.body && typeof data.body.error !== 'undefined') {
           updateRateLimit(data.headers)
           return callback ? callback(data.body, null) : reject(data.body)
         }
